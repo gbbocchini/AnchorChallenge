@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block navbar %}
+<br>
+<div class="jumbotron jumbotron-fluid border">
+
+
+    <img src="{{ object.image.url }}">
+
+    <a class="like-btn" data-href="{{ object.get_like_url_api }}" data-likes="{{ object.likes.count }}"
+       href="{{ object.get_like_url }}">{{ object.likes.count }} Likes</a>
+
+
+</div>
+
+
+{% endblock %}

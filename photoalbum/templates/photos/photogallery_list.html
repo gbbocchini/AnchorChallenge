@@ -1,0 +1,91 @@
+{% extends 'index.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block navbar %}
+<br>
+<br>
+<div class="container">
+    <div class="jumbotron jumbotron-fluid border">
+        <div class="container-fluid">
+                <div class="row" align="center">
+                    <div class="col-lg-6">
+                    <a href="{% url 'allphotosbyadded'%}">Most Recent Pics</a>
+                </div>
+                    <div class="col-lg-6">
+                    <a href="{% url 'allphotos'%}">Reset Filter</a>
+                    </div>
+                </div>
+            <br>
+            <br>
+
+
+
+            <div class="row">
+                {% for photo in object_list %}
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                       data-image="{{ photo.image.url }}"
+                       data-target="#image-gallery">
+                        <img class="img-thumbnail"
+                             src="{{ photo.image.url }}">
+
+                        <p><a class="like-btn" data-href="{{ photo.get_like_url_api }}"
+                              data-likes="{{ photo.likes.count }}"
+                              href="{{ photo.get_like_url }}">{{ photo.likes.count }} Likes</a> | Added: {{photo.added}}
+                            by {{photo.user}}</p>
+                    </a>
+                </div>
+                {%endfor%}
+                </div>
+            <br>
+            <br>
+<div class="list-group">
+    <div class="row" align="center">
+        <div class="col-md-12">
+            <nav>
+                <ul class="pagination justify-content-center">
+                    {% for page in paginator.page_range %}
+                    <li
+                    {% if page_obj.number == page %} class="page-item"{%endif%}><a class="page-link" href="?page={{page}}">{{page}}</a></li>
+                    {%endfor%}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="image-gallery-title"></h4>
+                <button type="button" class="close" data-dismiss="modal"><span
+                        aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i
+                        class="fa fa-arrow-left"></i>
+                </button>
+
+                <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i
+                        class="fa fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    {%endblock%}

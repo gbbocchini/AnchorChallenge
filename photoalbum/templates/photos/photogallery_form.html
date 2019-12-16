@@ -1,0 +1,30 @@
+{% extends 'index.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block navbar %}
+<br>
+<div class="container">
+    <div class="jumbotron jumbotron-fluid border">
+        <div class="container-fluid" align="center">
+            <h2>Send Us Your Picture!</h2>
+            <br>
+            <p>* the picture will be sent to the bride & groom for approval before publishing!</p>
+            <br>
+            <br>
+            <div class="container-fluid">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form}}
+
+                <input type="submit" value="Send!" name="submit" title="Send">
+
+            </form>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}

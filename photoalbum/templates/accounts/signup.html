@@ -1,0 +1,19 @@
+{% extends 'index.html'%}
+{% load crispy_forms_tags %}
+
+{% block navbar %}<br>
+<div class="container">
+<div class="jumbotron jumbotron-fluid border">
+        <div class="container-fluid">
+    <h2> Please Register To Post Pics and See Pics \o/</h2>
+    <br>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" class="btn btn-outline-dark" value="Register">
+    </form>
+</div>
+</div>
+    </div>
+
+{%endblock%}
