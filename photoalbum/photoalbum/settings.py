@@ -11,7 +11,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET")
+SECRET_KEY = config('SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -105,9 +105,9 @@ DATABASES = {
     "default": {
         "ENGINE": "djongo",
         "NAME": "anchortest",
-        "HOST": config("MONGO_HOST"),
-        "USER": config("MONGO_USER"),
-        "PASSWORD": config("MONGO_PASS"),
+        "HOST": config('MONGO_HOST'),
+        "USER": config('MONGO_USER'),
+        "PASSWORD": config('MONGO_PASS'),
     }
 }
 
@@ -153,9 +153,9 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # AWS S3 CONFIG
-AWS_ACCESS_KEY_ID = config("AWS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = config("AWS_KEY")
-AWS_STORAGE_BUCKET_NAME = config("AWS_BUCKET")
+AWS_ACCESS_KEY_ID = config('AWS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_BUCKET')
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 AWS_S3_SIGNATURE_VERSION = "s3v4"
