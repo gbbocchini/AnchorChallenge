@@ -2,9 +2,10 @@
 __pycache__/
 migrations
 photoalbum/photos/migrations
-photos/__pycache__
-accounts/migrations
-accounts/__pycache__
-photoalbum/__pycache__
+photoalbum/photos/__pycache__
+photoalbum/accounts/migrations
+photoalbum/accounts/__pycache__
+photoalbum/photoalbum/__pycache__
 venv
 .idea
+photoalbum/staticfiles

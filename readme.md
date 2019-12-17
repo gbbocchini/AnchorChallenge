@@ -28,9 +28,24 @@ Deployed at https://challengeanchor.herokuapp.com/
 
 Bride and Groom login: jackjill (pass: Bocchini@83)  https://challengeanchor.herokuapp.com/admin for photo approval before publication.
 
+## Local build
+
+- Clone this repo (```git clone ...```);
+- Build a Python3 Virtual Env (```python3 -m venv venv```) and activate it (```source venv/bin/activate```);
+- Install all requirements (```pip3 install -r requirements.txt```);
+- Create an AWS S3 bucket and get your keys for it;
+- Create a free tier hosted MongoDB instance at https://cloud.mongodb.com/;
+- Make Django Migrations;
+- ```python manage.y runserver``` and you are good to go!
+
+## Tests
+- Before testing make sure you collect static files locally (```python manage.y collectstatic```);
+- Run all tests with ```python manage.y test```;
+
+ 
+
 ## TODOS (time was my problem here):
 - Likes filter;
-- tests;
 - more professional looking front-end (need to study more...the front-end took most of my time and I personally did not like)
 
 
